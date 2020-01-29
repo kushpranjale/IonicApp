@@ -13,7 +13,7 @@ export class AddPage implements OnInit {
 
   ngOnInit() {
   }
-  darkMode () {
+  darkMode() {
     this.themeservice.addDarkTheme();
   }
 
