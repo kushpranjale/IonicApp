@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class ThemeService {
  render: Renderer2;
-  constructor( private renderFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document) { 
+  constructor( private renderFactory: RendererFactory2, @Inject(DOCUMENT) private document: Document) {
     this.render = renderFactory.createRenderer(null , null);
   }
 
@@ -15,6 +15,6 @@ export class ThemeService {
   }
 
   removeDarkTheme() {
-    this.render.removeClass(this.document.body, 'dark-theme')
+    this.render.removeClass(this.document.body, 'dark-theme');
   }
 }
