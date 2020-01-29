@@ -1,0 +1,30 @@
+<ion-header translucent>
+  <!-- <ion-item>
+    <ion-label slot="end">Enable Dark Mode <ion-icon name="moon"></ion-icon></ion-label>
+    <ion-toggle slot="end" [(ngModel)]="status" (ngModelChange)= "onChange($event)"></ion-toggle>
+  </ion-item> -->
+  <ion-item lines="full">
+    <ion-icon slot="start" [name]="iconName"></ion-icon>
+    <ion-label>
+      Toggle Dark Theme
+    </ion-label>
+    <ion-toggle slot="end" [(ngModel)]="status" (ngModelChange)= "onChange($event)"></ion-toggle>
+  </ion-item>
+</ion-header>
+<ion-content>
+
+<ion-tabs >
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="add">
+      <ion-icon name="ADD"></ion-icon>
+      <ion-label>ADD</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="schedule">
+      <ion-icon name="eye"></ion-icon>
+      <ion-label>SEE</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+</ion-content>
