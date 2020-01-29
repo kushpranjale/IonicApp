@@ -1,5 +1,6 @@
 import { ThemeService } from './../theme.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dasboard',
@@ -11,8 +12,19 @@ export class DasboardPage implements OnInit {
 
   status = false;
    iconName = 'sunny';
+   toastMessage = '';
 
-  constructor( private themeService: ThemeService) { }
+  constructor( private themeService: ThemeService, private toastController: ToastController) { }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: `you switched to ${this.toastMessage} mode`,
+      duration: 1000,
+      showCloseButton: true,
+      animated: true
+    });
+    toast.present();
+  }
 
   ngOnInit() {
 
@@ -22,9 +34,13 @@ export class DasboardPage implements OnInit {
     if (this.status) {
       this.iconName = 'moon';
       this.themeService.addDarkTheme();
+      this.toastMessage = 'dark';
+      this.presentToast();
     } else {
       this.iconName = 'sunny';
       this.themeService.removeDarkTheme();
+      this.toastMessage = 'light';
+      this.presentToast();
     }
   }
 
